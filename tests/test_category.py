@@ -17,32 +17,15 @@ def test_category_count(category_first):
     assert category_first.product_count == 2
 
 
-def test_add_product():
-    category_second =Category(
-        name="Тест",
-        description="Тест",
-        products=[
-            Product(
-                name='Тест 1',
-                description="Тест",
-                price=123000.0,
-                quantity=6,
-            ),
-            Product(
-                name="Тест 2",
-                description="Тест",
-                price=210000.0,
-                quantity=8,
-            ),
-        ],
-    )
-    product_first = Product(
-                name="Тест 2",
-                description="Тест",
-                price=210000.0,
-                quantity=8,
-            )
+def test_add_product(category_second, product_first):
     assert category_second.product_count == 2
     category_second.add_product(product_first)
     assert category_second.product_count == 3
+
+
+def test_products(category_first):
+    product_str = category_first.products
+    assert product_str == ('"55" QLED 4K, 123000.0 руб. Остаток: 7\n'
+                           'Iphone 15, 210000.0 руб. Остаток: 8\n')
+
 

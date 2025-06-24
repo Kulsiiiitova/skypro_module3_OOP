@@ -15,14 +15,36 @@ def product_first():
 
 
 @pytest.fixture()
+def product_second():
+    return Product(
+        name="Samsung Galaxy C23 Ultra",
+        description="256GB, Серый цвет, 200MP камера",
+        price=-10,
+        quantity=5,
+    )
+
+
+@pytest.fixture()
+def product_third():
+    return Product(
+        name="Samsung Galaxy C23 Ultra",
+        description="256GB, Серый цвет, 200MP камера",
+        price=0,
+        quantity=5,
+    )
+
+
+@pytest.fixture()
 def category_first():
+    Category.category_count = 0  # Сбрасываем счетчики перед созданием
+    Category.product_count = 0
     return Category(
         name="Телевизоры",
         description="Современный телевизор, который позволяет наслаждаться просмотром, "
         "станет вашим другом и помощником",
         products=[
             Product(
-                name='55" QLED 4K',
+                name='"55" QLED 4K',
                 description="Фоновая подсветка",
                 price=123000.0,
                 quantity=7,
@@ -39,6 +61,8 @@ def category_first():
 
 @pytest.fixture()
 def category_second():
+    Category.category_count = 0  # Сбрасываем счетчики перед созданием
+    Category.product_count = 0
     return Category(
         name="Тест",
         description="Тест",
