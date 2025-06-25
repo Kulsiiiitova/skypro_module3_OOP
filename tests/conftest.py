@@ -68,7 +68,7 @@ def category_second():
         description="Тест",
         products=[
             Product(
-                name='Тест 1',
+                name="Тест 1",
                 description="Тест",
                 price=123000.0,
                 quantity=6,
