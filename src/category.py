@@ -1,4 +1,4 @@
-from src.product import Product
+from src.product import (Product)
 
 
 class Category:
@@ -18,6 +18,12 @@ class Category:
         Category.category_count += 1
         Category.product_count += len(self.__products) if products else 0
 
+    def __str__(self):
+        count_product = 0
+        for product in self.__products:
+            count_product += product.quantity
+        return f'{self.name}, количество продуктов: {count_product}'
+
     def add_product(self, products: Product):
         if products not in self.__products:
             self.__products.append(products)
@@ -27,7 +33,10 @@ class Category:
     def products(self):
         product_str = ""
         for product in self.__products:
-            product_str += (
-                f"{product.name}, {product.price} руб. Остаток: {product.quantity}\n"
-            )
+            product_str += f"{str(product)}\n"
         return product_str
+
+    @property
+    def products_list(self):
+        """Возвращает список продуктов (для итератора)"""
+        return self.__products

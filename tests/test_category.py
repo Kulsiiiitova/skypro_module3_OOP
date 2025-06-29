@@ -25,6 +25,10 @@ def test_add_product(category_second, product_first):
 def test_products(category_first):
     product_str = category_first.products
     assert product_str == (
-        '"55" QLED 4K, 123000.0 руб. Остаток: 7\n'
-        "Iphone 15, 210000.0 руб. Остаток: 8\n"
+        '"55" QLED 4K, 123000.0 руб. Остаток: 7 шт.\n'
+        "Iphone 15, 210000.0 руб. Остаток: 8 шт.\n"
     )
+
+
+def test_count(category_first):
+    assert str(category_first) == 'Телевизоры, количество продуктов: 15'

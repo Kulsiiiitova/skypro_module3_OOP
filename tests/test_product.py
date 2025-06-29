@@ -23,3 +23,7 @@ def test_new_product():
 def test_price(product_first):
     price = product_first.price
     assert price == 180000.0
+
+
+def test_add_products(product_first, product_second):
+    assert product_first + product_second == 1400000.0

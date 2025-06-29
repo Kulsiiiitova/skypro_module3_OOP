@@ -19,7 +19,7 @@ def product_second():
     return Product(
         name="Samsung Galaxy C23 Ultra",
         description="256GB, Серый цвет, 200MP камера",
-        price=-10,
+        price=100000,
         quantity=5,
     )
 
